@@ -6,7 +6,7 @@
 /*   By: smickael <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/28 17:54:03 by smickael          #+#    #+#             */
-/*   Updated: 2018/09/05 17:51:43 by smickael         ###   ########.fr       */
+/*   Updated: 2018/09/16 19:22:52 by smickael         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,27 @@ void	ft_spec_base(t_env *op, char type)
 	tmp = va_arg(op->ap, long);
 	if (op->mod == pf_hh)
 		val = (unsigned char)tmp;
+}
+
+void	ft_spec_char(t_env *op, char type)
+{
+	char	*stmp;
+	int		ctmp;
+
+	op->flags.minus ? op->flags.zero = 0 : 0;
+	if (type == 's')
+	{
+		stmp = va_arg(op->ap, char *);
+		if (stmp == NULL)
+			return (ft_print_null_str(op));
+		op->out = ft_strdup((char*)stmp);
+		ft_print_str(op);
+	}
+	else if (type == 'c')
+	{
+		ctmp = va_arg(op->ap, int);
+		ft_print_char(op, ctmp);
+	}
 }
 
 void	ft_spec_int(t_env *op)

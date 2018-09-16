@@ -6,7 +6,7 @@
 /*   By: smickael <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/27 19:39:55 by smickael          #+#    #+#             */
-/*   Updated: 2018/09/05 17:55:39 by smickael         ###   ########.fr       */
+/*   Updated: 2018/09/06 16:28:29 by smickael         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,3 @@ void	ft_init_flag(t_flags *flags)
 	flags->negative = 0;
 	flags->accuracy = 0;
 }
-
-

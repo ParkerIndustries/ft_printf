@@ -6,7 +6,7 @@
 /*   By: smickael <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 17:06:33 by smickael          #+#    #+#             */
-/*   Updated: 2018/09/03 17:17:15 by smickael         ###   ########.fr       */
+/*   Updated: 2018/09/06 16:22:09 by smickael         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ char	*ft_ultoa_base(unsigned long n, int base)
 	s[len] = '\0';
 	while (n >= (unsigned)base)
 	{
-		s[--len] = n % base < 10 ? (n % base) + 48 :  (n % base) + 55;
+		s[--len] = n % base < 10 ? (n % base) + 48 : (n % base) + 55;
 		n /= base;
 	}
-	s[--len] = n % base < 10 ? (n % base) + 48 :  (n % base) + 55;
+	s[--len] = n % base < 10 ? (n % base) + 48 : (n % base) + 55;
 	return (s);
 }

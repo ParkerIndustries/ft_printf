@@ -6,7 +6,7 @@
 /*   By: smickael <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 15:10:40 by smickael          #+#    #+#             */
-/*   Updated: 2018/09/05 16:49:02 by smickael         ###   ########.fr       */
+/*   Updated: 2018/09/10 14:48:09 by smickael         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,23 @@ void	ft_spec_ptraddr(t_env *op, char type)
 		op->out = ft_strdup("\0");
 	else
 		op->out = ft_ltoa_base(p, 16);
-	ft_print_ptraddr(op,type);
+	ft_print_ptraddr(op, type);
+}
+
+void	ft_spec_percent(t_env *op)
+{
+	if (op->flags.minus)
+	{
+		op->ret += write(1, "%", 1);
+		while (op->flags.width-- > 1)
+			op->ret += write(1, " ", 1);
+	}
+	else
+	{
+		while (op->flags.width-- > 1)
+			op->ret += (op->flags.zero ?
+					write(1, "0", 1) : write(1, " ", 1));
+		op->ret += write(1, "%", 1);
+	}
+	++op->i;
 }
